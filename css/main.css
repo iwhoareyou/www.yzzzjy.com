@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+.head {
+    width: 1200px;
+    height: 113px;
+    margin: 0 auto;
+}
+
+.head div img {
+    width: 307px;
+    height: 113px;
+    float: left;
+    vertical-align: middle;
+}
+
+.nav ul li {
+    float: left;
+    list-style: none;
+    line-height: 113px;
+    margin-left: 38px;
+    font-size: 16px;
+}
+
+.banner {
+    z-index: 998;
+    margin-top: 113px;
+    width: 100%;
+    min-width: 1200px;
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/banner.png) no-repeat center top;
+    height: 692px;
+}
+
+.bj {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com//bj.png) no-repeat 0 0;
+    width: 100%;
+    height: 430px;
+}
+
+.nav-list {
+    color: red;
+    cursor: pointer;
+}
+
+.nav-list-oth {
+    color: #333333;
+}
+
+.hov:hover {
+    color: red;
+}
+
+.bj-1 {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/img1.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 520px;
+}
+
+.bj2 {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/img2.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 1080px;
+}
+
+.bj3 {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/img3.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 1059px;
+}
+
+.bj4 {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/img4.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 1024px;
+}
+
+.bj4 {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/img5.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 452px;
+}
+
+.footer {
+    background: url(http://7ktupt.com1.z0.glb.clouddn.com/foot.png) no-repeat center top;
+    width: 100%;
+    min-width: 1200px;
+    height: 109px;
+}
+
+.box {
+    width: 1200px;
+    margin: 0 auto;
+    color: #492707;
+}
+
+.input_text {
+    border-color: #492707;
+    border-style: solid;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    outline: none;
+}
+
+.input_text_email {
+    border-color: #492707;
+    border-style: solid;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    width: 345px;
+    outline: none;
+}
+
+textarea {
+    border-color: #492707;
+    border-style: solid;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    width: 420px;
+    height: 130px;
+    outline: none;
+}
+
+.box div {
+    margin-top: 25px;
+}
+
+.but {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #492707;
+    line-height: 40px;
+    font-size: 25px;
+    border: 0;
+    outline: none;
+    float: right;
+    cursor: pointer;
+}
+
+ul, li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    /*padding-bottom: 50px;*/
+}
+
+/* qqshop focus */
+#focus {
+    width: 1000px;
+    height: 430px;
+    overflow: hidden;
+    position: relative;
+}
+
+#focus ul {
+    height: 430px;
+    position: absolute;
+}
+
+#focus ul li {
+    float: left;
+    width: 1000px;
+    height: 430px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+#focus ul li div {
+    position: absolute;
+    overflow: hidden;
+}
+
+#focus .btn span {
+    display: inline-block;
+    _display: inline;
+    _zoom: 1;
+    width: 25px;
+    height: 10px;
+    _font-size: 0;
+    margin-left: 5px;
+    cursor: pointer;
+    background: #fff;}
+
+
+#focus .preNext {
+    width: 26px;
+    height: 53px;
+    position: absolute;
+    top: 150px;
+    cursor: pointer;
+}
+
+#focus .pre {
+    left: 0px;
+    width: 26px;
+    height: 53px;
+    display: block;
+}
+
+#focus .next {
+    right: 0;
+    background-position: right top;
+}
+
+.cur {
+    color: red;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}

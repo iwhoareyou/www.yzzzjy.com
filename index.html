@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>真州春</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+            var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+            var len = $("#focus ul li").length; //获取焦点图个数
+            var index = 0;
+            var picTimer;
+
+
+////上一页、下一页按钮透明度处理
+//            $("#focus .preNext").css("opacity", 0.2).hover(function () {
+//                $(this).stop(true, false).animate({"opacity": "0.5"}, 300);
+//            }, function () {
+//                $(this).stop(true, false).animate({"opacity": "0.2"}, 300);
+//            });
+
+//上一页按钮
+            $("#focus .pre").click(function () {
+                index -= 1;
+                if (index == -1) {
+                    index = len - 1;
+                }
+                showPics(index);
+            });
+
+//下一页按钮
+            $("#focus .next").click(function () {
+                index += 1;
+                if (index == len) {
+                    index = 0;
+                }
+                showPics(index);
+            });
+
+            $("#focus ul").css("width", sWidth * (len));
+
+//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+            $("#focus").hover(function () {
+                clearInterval(picTimer);
+            }, function () {
+                picTimer = setInterval(function () {
+                    showPics(index);
+                    index++;
+                    if (index == len) {
+                        index = 0;
+                    }
+                }, 4000); //此4000代表自动播放的间隔，单位：毫秒
+            }).trigger("mouseleave");
+
+//显示图片函数，根据接收的index值显示相应的内容
+            function showPics(index) { //普通切换
+                var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
+                $("#focus ul").stop(true, false).animate({"left": nowLeft}, 300); //通过animate()调整ul元素滚动到计算出的position
+
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="content">
+    <div style="position: fixed;z-index: 999;width: 100%;;margin-top: -113px;background-color: white">
+        <div class="head">
+            <div><img src="http://7ktupt.com1.z0.glb.clouddn.com/tit-logo.png"></div>
+            <div class="nav pop1" id="popup">
+                <ul class="r_nav">
+                    <li class="nav-list lis"><a class="cur" href="javascript:;" title="">网站首页</a></li>
+                    <li class="nav-list-oth">丨</li>
+                    <li class="nav-list nav-list-oth hov lis"><a href="javascript:;" title="">关于我们</a></li>
+                    <li class="nav-list-oth">丨</li>
+                    <li class="nav-list nav-list-oth hov lis"><a href="javascript:;" title="">产品分类</a></li>
+                    <li class="nav-list-oth">丨</li>
+                    <li class="nav-list nav-list-oth hov lis"><a href="javascript:;" title="">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="banner cont1 cont"></div>
+    <div class="bj-1 cont2 cont"></div>
+    <div class="bj">
+        <div class="wrapper">
+            <div id="focus">
+                <ul>
+                    <li><img src="http://7ktupt.com1.z0.glb.clouddn.com/one.png"/>
+                    </li>
+                    <li><img src="http://7ktupt.com1.z0.glb.clouddn.com/two.png"/>
+                    </li>
+                    <li><img src="http://7ktupt.com1.z0.glb.clouddn.com/jiu.png"/>
+
+                    </li>
+                </ul>
+                <div class="preNext pre"><img src="http://7ktupt.com1.z0.glb.clouddn.com/left.png"></div>
+                <div class="preNext next"><img src="http://7ktupt.com1.z0.glb.clouddn.com/right.png"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="bj2 cont3 cont"></div>
+    <div class="bj3"></div>
+    <div class="bj4 cont4 cont">
+        <!--<div class="box">-->
+        <!--<div style="float: right;">-->
+        <!--<div><span>姓名&nbsp;Name</span><span><input name="carType" type="text"-->
+        <!--class="input_text"/></span><span>电话&nbsp;</span><input-->
+        <!--name="carType"-->
+        <!--type="text"-->
+        <!--class="input_text"/>-->
+        <!--</div>-->
+        <!--<div><span>邮箱&nbsp;Email</span><span><input name="carType" type="text"-->
+        <!--class="input_text_email"/></span></div>-->
+
+        <!--<div><textarea name="yj" clos="20" rows="1">留言IMessage</textarea></div>-->
+        <!--<div><input type="button" value="提交" class="but"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="bj5">
+
+    </div>
+    <div class="footer">
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var nav = (function (navObj) {
+
+            navObj.init = function () {
+
+                this.n = 0;
+
+                this.offsetTop = [];
+
+                this.scrolltype = true;
+
+                this.review = function () {
+
+                    $('#popup .lis a').eq(this.n).addClass('cur').parent().siblings().children().removeClass('cur');
+
+                };
+
+                for (var i = 0; i < $('.content .cont').length; i++) {
+
+                    this.offsetTop.push($('.content .cont').eq(i).offset().top);
+
+                }
+                ;
+
+                navObj.bindE();
+
+            };
+
+            navObj.bindE = function () {//滚动条滚动改变导航元素效果
+
+                var self = this;//这里的this等同于上面的this
+
+                $(window).bind('load scroll', function () {
+
+                    var stval = $(this).scrollTop();
+
+                    if (stval > 399) {//判断滚动条滚动距离大于或小于header高度时，让导航效果对应在第一个上
+
+                        if (stval < self.offsetTop[0]) {
+
+//alert(self.offsetTop[0]);
+
+                            self.n = 0;
+
+                        } else {
+
+                            for (var j = 0; j < self.offsetTop.length; j++) {
+
+                                if (stval > (self.offsetTop[j] + 300) && stval < self.offsetTop[j + 1]) {
+                                    self.n = j + 1;
+                                    break;
+                                }//这里的300是常量
+
+                            }
+                            ;
+
+                        }
+                        ;
+
+                        if (self.scrolltype === true) {
+
+                            self.review();
+
+                        }
+
+                        $('#popup').removeClass('pop1').addClass('pop');
+
+                    } else {
+
+                        $('#popup').removeClass('pop').addClass('pop1');
+
+                        $('#popup li a').parent('li:first-child').children().addClass('cur').parent().siblings().children().removeClass('cur');
+
+                    }
+                    ;
+
+                });
+
+                $('.toTop').click(function () {//    点击返回首页Top按钮实现页面不刷新返回顶部
+
+                    $('html, body').animate({scrollTop: 0 + 'px'}, 500);
+
+                    $('#popup li a').parent('li:first-child').children().addClass('cur').parent().siblings().children().removeClass('cur');
+
+                });
+
+                $('#popup .lis').delegate('a', 'click', function (e) {//   点击导航定位页面内容
+
+                    self.n = $(this).index('#popup .lis a');
+
+                    self.scrolltype = false;
+
+                    self.review();
+
+                    var t = self.offsetTop[self.n];
+
+                    $('html,body').animate({scrollTop: t}, 500, function () {//   滚动条滚动 页面不同内容的offsetTop值实现按钮对应效果
+
+                        self.scrolltype = true;
+
+                        $(self.n).addClass('cur').parent().siblings().children().removeClass('cur');
+
+                    });
+
+                });
+
+            };
+
+            return navObj;
+
+        })(window.navObj || {});
+
+        nav.init();
+
+    });
+
+</script>
+</body>
+</html>
